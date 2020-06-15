@@ -1,3 +1,10 @@
 <div id="tweets_listing">
   <%= render partial: "tweets/tweet", collection: @tweets %>
 </div>
+
+<%= form_for @new_tweek do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <button type="submit" class="btn btn-primary">Tweet</button>
+<% end %>
