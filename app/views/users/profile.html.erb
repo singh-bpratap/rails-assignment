@@ -1,0 +1,39 @@
+<h4>Yours followers</h4>
+
+<% if @user.followers.present? %>
+  <ul class="list-group">
+    <% @user.followers.each do |follower| %>
+      <li class="list-group-item"><%= follower.username %></li>
+    <% end %>
+  </ul>
+<% else %>
+  No one is following you.
+<% end %>
+
+<hr/>
+
+<h4>You are following to</h4>
+
+<% if @user.followings.present? %>
+  <ul class="list-group">
+    <% @user.followings.each do |following| %>
+      <li class="list-group-item"><%= following.username %></li>
+    <% end %>
+  </ul>
+<% else %>
+  You are not following to anyone.
+  <br/>  
+  <h4>You can follow from below list.</h4>
+  <% if current_user.unfollowings.present? %>
+    <ul class="list-group">
+      <% current_user.unfollowings.each do |user| %>
+        <li class="list-group-item">
+          <%= user.username %>
+          <%# link_to "Follow" %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    No record found.
+  <% end %>
+<% end %>

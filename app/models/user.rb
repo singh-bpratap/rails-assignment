@@ -11,4 +11,12 @@ class User < ApplicationRecord
   # For users I am following to whom.
   has_many :users_followings, dependent: :destroy, foreign_key: :user_id, class_name: "UsersFollower"
   has_many :followings, through: :users_followings, foreign_key: :user_id, source: "user"
+
+  def unfollowings
+    User.where.not(id: [id, *followings])
+  end
+
+  def username
+    email.split("@").first
+  end
 end

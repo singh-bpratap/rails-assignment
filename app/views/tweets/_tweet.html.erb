@@ -1,0 +1,5 @@
+<p class="tweet-content"><%= tweet.content %></p>
+<%= link_to profile_user_path(tweet.user), class: "auther-name" do %>
+  Author: <%= tweet.user.username %>
+<% end %>
+<hr/>
