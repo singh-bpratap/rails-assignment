@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+* Below things I could not do in this test.
+
+- Could not follow the best practices at few places.
+
+- Could not create required APIs, I have handled HTML request instead because of lack of time.
+
+- Could not write code to handle exceptions on creating records.
+
+- Could not focus on functionalities because I have spend time to polish the UI by adding bootstrap.
