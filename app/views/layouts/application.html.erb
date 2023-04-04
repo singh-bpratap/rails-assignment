@@ -10,10 +10,9 @@
   </head>
 
   <body>
-    <%= render "shared/header" %>
-    <div class="container-fluid">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <%= render "shared/header" if user_signed_in? %>
+    <%= render partial: "shared/flash" %>
+    <div class="container-fluid mt-4">
       <%= yield %>
     </div>
   </body>

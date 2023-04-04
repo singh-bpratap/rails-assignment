@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :followers, only: [:create, :destroy]
+  resources :followers, only: [:create, :destroy], param: :user_id
 end

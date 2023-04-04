@@ -1,4 +1,6 @@
-<h4>Yours followers</h4>
+<%= link_to "Back", root_path, class: "btn btn-sm btn-primary" %>
+<h2><%= @user.username %></h2>
+<h4>Followers</h4>
 
 <% if @user.followers.present? %>
   <ul class="list-group">
@@ -7,12 +9,12 @@
     <% end %>
   </ul>
 <% else %>
-  No one is following you.
+  No one is following.
 <% end %>
 
 <hr/>
 
-<h4>You are following to</h4>
+<h4>Followings</h4>
 
 <% if @user.followings.present? %>
   <ul class="list-group">
@@ -21,19 +23,21 @@
     <% end %>
   </ul>
 <% else %>
-  You are not following to anyone.
-  <br/>  
-  <h4>You can follow from below list.</h4>
-  <% if current_user.unfollowings.present? %>
-    <ul class="list-group">
-      <% current_user.unfollowings.each do |user| %>
-        <li class="list-group-item">
-          <%= user.username %>
-          <%# link_to "Follow" %>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    No record found.
-  <% end %>
+  Not following to anyone.
 <% end %>
+<br/><br/>
+<% if current_user.follow?(@user) %>
+  <%= button_to "Unfollow",
+    follower_path(@user.id),
+    method: :delete,
+    class: 'btn btn-danger'
+  %>
+<% elsif current_user != @user %>
+  <%= button_to "Follow",
+    followers_path,
+    method: :post,
+    params: {users_follower: {user_id: @user.id}},
+    class: 'btn btn-primary'
+  %>
+<% end %>
+

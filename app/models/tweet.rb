@@ -10,6 +10,6 @@ class Tweet < ApplicationRecord
     [
       *self.user_followings_tweets(user),
       *joins(:user)
-    ]
+    ].uniq
   end
 end

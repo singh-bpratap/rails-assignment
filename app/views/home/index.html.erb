@@ -2,7 +2,7 @@
   <%= render partial: "tweets/tweet", collection: @tweets %>
 </div>
 
-<%= form_for @new_tweek do |f| %>
+<%= form_for @new_tweet do |f| %>
   <div class="form-group">
     <%= f.text_area :content, class: "form-control" %>
   </div>

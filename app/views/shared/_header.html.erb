@@ -7,9 +7,15 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
-      <li class="nav-item">
-        <%= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.username %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+        </div>
       </li>
+
     </ul>
   </div>
 </nav>
